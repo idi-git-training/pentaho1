@@ -428,16 +428,16 @@
     <created_user>-</created_user>
     <created_date>2018/09/29 09:44:31.271</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2018/09/28 10:28:37.511</modified_date>
+    <modified_date>2018/09/28 10:37:05.302</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>prueba hola hola llll</note>
-      <xloc>208</xloc>
-      <yloc>240</yloc>
-      <width>114</width>
+      <note>Version prueba 12</note>
+      <xloc>368</xloc>
+      <yloc>64</yloc>
+      <width>104</width>
       <heigth>26</heigth>
       <fontname>Segoe UI</fontname>
       <fontsize>9</fontsize>
