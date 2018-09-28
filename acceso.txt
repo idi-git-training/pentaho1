@@ -1,1 +1,0 @@
-url=https://github.com/idi-git-training/pentaho1.git

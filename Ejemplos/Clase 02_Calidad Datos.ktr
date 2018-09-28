@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>Clase 02_Data Cleaner</name>
-    <description/>
-    <extended_description/>
-    <trans_version/>
+    <name>Clase 02_Calidad Datos</name>
+    <description />
+    <extended_description />
+    <trans_version />
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>/</directory>
+    <directory>/Ejemplos</directory>
     <parameters>
     </parameters>
     <log>
       <trans-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <size_limit_lines/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -42,37 +41,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>ERRORS</id>
@@ -126,11 +125,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -208,10 +207,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -274,10 +273,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -350,10 +349,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -402,9 +401,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection/>
-      <table/>
-      <field/>
+      <connection />
+      <table />
+      <field />
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -415,7 +414,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file/>
+    <shared_objects_file />
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -430,7 +429,7 @@
     <created_user>-</created_user>
     <created_date>2018/05/22 16:02:28.251</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2018/05/22 16:02:28.251</modified_date>
+    <modified_date>2018/09/28 07:19:47.630</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -438,21 +437,205 @@
   </notepads>
   <order>
     <hop>
-      <from>PERSONAS</from>
-      <to>Estandarizar</to>
+      <from>Convertir Fecha</from>
+      <to>Corregir simbolos fecha</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Convertir Fecha</from>
+      <to>unir flujos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Corregir simbolos fecha</from>
+      <to>Verificar Fecha Valida</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Estadarizar nombres</from>
+      <to>Convertir Fecha</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>FECHAS CORREGIDAS</from>
+      <to>unir flujos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Verificar Fecha Valida</from>
+      <to>FECHAS CORREGIDAS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>PERSONAS CLASE02</from>
+      <to>Estadarizar nombres</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>unir flujos</from>
+      <to>Select values</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Estandarizar</name>
+    <name>Convertir Fecha</name>
     <type>SelectValues</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>per_ord</name>
+      </field>
+      <field>
+        <name>per_identificacion</name>
+      </field>
+      <field>
+        <name>per_nombre_completo</name>
+      </field>
+      <field>
+        <name>per_telefono1</name>
+      </field>
+      <field>
+        <name>per_telefono2</name>
+      </field>
+      <field>
+        <name>per_telefono3</name>
+      </field>
+      <field>
+        <name>per_cod_nacionalidad</name>
+      </field>
+      <field>
+        <name>per_fec_nacimiento</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>per_fec_nacimiento</name>
+        <rename>per_fec_nacimiento</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy/MM/dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Corregir simbolos fecha</name>
+    <type>ReplaceString</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>per_fec_nacimiento</in_stream_name>
+        <out_stream_name />
+        <use_regex>no</use_regex>
+        <replace_string>00:00:00.000</replace_string>
+        <replace_by_string />
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string />
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>per_fec_nacimiento</in_stream_name>
+        <out_stream_name />
+        <use_regex>no</use_regex>
+        <replace_string>.</replace_string>
+        <replace_by_string>/</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string />
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>per_fec_nacimiento</in_stream_name>
+        <out_stream_name />
+        <use_regex>no</use_regex>
+        <replace_string>-</replace_string>
+        <replace_by_string>/</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string />
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>per_fec_nacimiento</in_stream_name>
+        <out_stream_name />
+        <use_regex>yes</use_regex>
+        <replace_string>[a-zA-Z]</replace_string>
+        <replace_by_string />
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string />
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>per_fec_nacimiento</in_stream_name>
+        <out_stream_name />
+        <use_regex>no</use_regex>
+        <replace_string>Ñ</replace_string>
+        <replace_by_string />
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string />
+        <whole_word>no</whole_word>
+        <case_sensitive>no</case_sensitive>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Estadarizar nombres</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
     </partitioning>
     <fields>
       <field>
@@ -461,7 +644,7 @@
       </field>
       <field>
         <name>IDENTIFICACION</name>
-        <rename>per_indentificacion</rename>
+        <rename>per_identificacion</rename>
       </field>
       <field>
         <name>NOMBRE_COMPLETO</name>
@@ -489,7 +672,7 @@
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -497,41 +680,109 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>48</yloc>
+      <xloc>272</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>PERSONAS</name>
-    <type>ExcelInput</type>
-    <description/>
+    <name>FECHAS CORREGIDAS</name>
+    <type>SelectValues</type>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <field>
+        <name>per_ord</name>
+      </field>
+      <field>
+        <name>per_identificacion</name>
+      </field>
+      <field>
+        <name>per_nombre_completo</name>
+      </field>
+      <field>
+        <name>per_telefono1</name>
+      </field>
+      <field>
+        <name>per_telefono2</name>
+      </field>
+      <field>
+        <name>per_telefono3</name>
+      </field>
+      <field>
+        <name>per_cod_nacionalidad</name>
+      </field>
+      <field>
+        <name>fechaValida</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>fechaValida</name>
+        <rename>per_fec_nacimiento</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyy/MM/dd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale />
+        <date_format_timezone />
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding />
+        <decimal_symbol />
+        <grouping_symbol />
+        <currency_symbol />
+        <storage_type />
+      </meta>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>PERSONAS CLASE02</name>
+    <type>ExcelInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
     </partitioning>
     <header>Y</header>
     <noempty>Y</noempty>
     <stoponempty>N</stoponempty>
-    <filefield/>
-    <sheetfield/>
-    <sheetrownumfield/>
-    <rownumfield/>
-    <sheetfield/>
-    <filefield/>
+    <filefield />
+    <sheetfield />
+    <sheetrownumfield />
+    <rownumfield />
+    <sheetfield />
+    <filefield />
     <limit>0</limit>
     <encoding>ISO-8859-1</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
+    <accept_field />
+    <accept_stepname />
     <file>
       <name>D:\nube\handytec\handytec\01 Clientes\Banco Pichincha - C360\03 Cursos\03 Curso Pentaho Data Integration\Taller Pentaho\CLASE_02 Calidad Datos.xlsx</name>
-      <filemask/>
-      <exclude_filemask/>
+      <filemask />
+      <exclude_filemask />
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
@@ -543,10 +794,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>IDENTIFICACION</name>
@@ -555,10 +806,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>NOMBRE_COMPLETO</name>
@@ -567,10 +818,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>FEC_NACIMIENTO</name>
@@ -579,10 +830,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>TELEFONO1</name>
@@ -591,10 +842,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>TELEFONO2</name>
@@ -603,10 +854,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>TELEFONO3</name>
@@ -615,10 +866,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
       <field>
         <name>COD_NACIONALIDAD</name>
@@ -627,10 +878,10 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
         <repeat>N</repeat>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
+        <format />
+        <currency />
+        <decimal />
+        <group />
       </field>
     </fields>
     <sheets>
@@ -643,22 +894,22 @@
     <strict_types>N</strict_types>
     <error_ignored>Y</error_ignored>
     <error_line_skipped>N</error_line_skipped>
-    <bad_line_files_destination_directory/>
+    <bad_line_files_destination_directory />
     <bad_line_files_extension>warning</bad_line_files_extension>
-    <error_line_files_destination_directory/>
+    <error_line_files_destination_directory />
     <error_line_files_extension>error</error_line_files_extension>
-    <line_number_files_destination_directory/>
+    <line_number_files_destination_directory />
     <line_number_files_extension>line</line_number_files_extension>
-    <shortFileFieldName/>
-    <pathFieldName/>
-    <hiddenFieldName/>
-    <lastModificationTimeFieldName/>
-    <uriNameFieldName/>
-    <rootUriNameFieldName/>
-    <extensionFieldName/>
-    <sizeFieldName/>
+    <shortFileFieldName />
+    <pathFieldName />
+    <hiddenFieldName />
+    <lastModificationTimeFieldName />
+    <uriNameFieldName />
+    <rootUriNameFieldName />
+    <extensionFieldName />
+    <sizeFieldName />
     <spreadsheet_type>POI</spreadsheet_type>
-    <cluster_schema/>
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -666,12 +917,162 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>48</yloc>
+      <xloc>112</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>896</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Verificar Fecha Valida</name>
+    <type>ScriptValueMod</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>//Script here
+var fechaValida=null;
+var str = per_fec_nacimiento;
+var res= str.split("/");
+var anio=res[0];
+var mes=res[1];
+var dia=res[2];
+
+// validar dato valido
+if(dia==null || dia==undefined || isNaN(Number(dia))){
+	dia="0";
+}
+
+if(mes==null || mes==undefined || isNaN(Number(mes))){
+	dia="0";
+}
+
+if(anio==null || anio==undefined || isNaN(Number(anio))){
+	anio="0";
+}
+
+//validar dia
+if(Number(dia)>31 &amp;&amp; Number(anio)&lt;=31){
+	var diaAux=dia;
+	dia=anio;
+	anio=diaAux;
+}
+
+//validar mes
+if(Number(mes)>12){
+	mes="0";
+}
+
+//obtener fecha segun parametros
+if(dia!="0" &amp;&amp; mes !="0" &amp;&amp; anio!="0"){
+	fechaValida=new Date(Number(anio), Number(mes) - 1, Number(dia));
+}
+
+//formatear en String
+if(fechaValida!=null){
+	fechaValida=anio+"/"+mes+"/"+dia;
+}
+
+
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>fechaValida</name>
+        <rename>fechaValida</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>unir flujos</name>
+    <type>Dummy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>64</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step_error_handling>
+    <error>
+      <source_step>Convertir Fecha</source_step>
+      <target_step>Corregir simbolos fecha</target_step>
+      <is_enabled>Y</is_enabled>
+      <nr_valuename />
+      <descriptions_valuename />
+      <fields_valuename />
+      <codes_valuename />
+      <max_errors />
+      <max_pct_errors />
+      <min_pct_rows />
+    </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
