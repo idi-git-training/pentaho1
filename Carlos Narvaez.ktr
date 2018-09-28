@@ -1,11 +1,11 @@
 <transformation>
   <info>
-    <name>Gersu01</name>
+    <name>Carlos Narvaez</name>
     <description/>
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>/</directory>
+    <directory>/pentaho1</directory>
     <parameters>
     </parameters>
     <log>
@@ -426,9 +426,9 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2018/09/27 21:47:37.267</created_date>
+    <created_date>2018/09/28 09:44:52.601</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2018/09/27 21:54:11.780</modified_date>
+    <modified_date>2018/09/28 09:56:00.762</modified_date>
     <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
@@ -437,8 +437,8 @@
   <order>
   </order>
   <step>
-    <name>Strings cut</name>
-    <type>StringCut</type>
+    <name>CSV file input</name>
+    <type>CsvInput</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -447,7 +447,31 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
+    <filename/>
+    <filename_field/>
+    <rownum_field/>
+    <include_filename>N</include_filename>
+    <separator>,</separator>
+    <enclosure>"</enclosure>
+    <header>Y</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding/>
     <fields>
+      <field>
+        <name>field</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
     </fields>
     <cluster_schema/>
     <remotesteps>
@@ -457,8 +481,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>176</xloc>
-      <yloc>144</yloc>
+      <xloc>160</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
